@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import CreatePost from './pages/CreatePost';
 import Login from './pages/Login';
 function App() {
+  const [isAuth, setIsAuth] = useState(false);
   return (
     <Router>
       <nav>
