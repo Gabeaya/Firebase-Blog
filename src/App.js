@@ -11,7 +11,7 @@ function App() {
       <nav>
         <Link to="/">Home </Link>
         <Link to="/createpost"> Create Post </Link>
-        <Link to="/login"> Login </Link>
+        {!isAuth ? <Link to="/login"> Login </Link> : <button> Log Out</button>}
       </nav>
       <Routes>
         <Route path="/" element={<Home/>}/>
