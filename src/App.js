@@ -6,15 +6,17 @@ import CreatePost from './pages/CreatePost';
 import Login from './pages/Login';
 import {signOut} from "firebase/auth";
 import {useNavigate} from "react-router-dom";
-
+import { auth} from './firebase'
 function App() {
   const [isAuth, setIsAuth] = useState(false);
+
+  let navigate = useNavigate();
 
   const signUserOut = () => {
     signOut(auth).then(() => {
       localStorage.clear()
       setIsAuth(false)
-      Navigate("/login");
+      navigate("/login");
     })
   };
   return (
