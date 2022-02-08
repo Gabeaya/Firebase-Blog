@@ -1,11 +1,22 @@
 import './App.css';
-import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
+import {BrowserRouter as Router, Routes, Route, Link, Navigate} from 'react-router-dom';
 import {useState} from "react";
 import Home from './pages/Home';
 import CreatePost from './pages/CreatePost';
 import Login from './pages/Login';
+import {signOut} from "firebase/auth";
+import {useNavigate} from "react-router-dom";
+
 function App() {
   const [isAuth, setIsAuth] = useState(false);
+
+  const signUseOut = () => {
+    signOut(auth).then(() => {
+      localStorage.clear()
+      setIsAuth(false)
+      Navigate("/login");
+    })
+  };
   return (
     <Router>
       <nav>
