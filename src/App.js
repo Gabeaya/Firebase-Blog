@@ -20,7 +20,7 @@ function App() {
     <Router>
       <nav>
         <Link to="/">Home </Link>
-        {!isAuth ? (
+        {!isAuth ? (//this is a work around to preventing certain paths
           <Link to="/login"> Login </Link> 
         ) : (
           <>
@@ -31,7 +31,7 @@ function App() {
       </nav>
       <Routes>
         <Route path="/" element={<Home/>}/>
-        <Route path="/createpost" element={<CreatePost/>}/>
+        <Route path="/createpost" element={<CreatePost isAuth={isAuth}/>}/>
         <Route path="/login" element={<Login setIsAuth={setIsAuth}/>}/>
       </Routes>
     </Router>
