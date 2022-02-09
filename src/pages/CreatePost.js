@@ -1,9 +1,10 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { addDoc, collection } from 'firebase/firestore'; //allows to add a doc to the database table
 import { db, auth } from '../firebase';
 import { useNavigate } from "react-router-dom";
 
-function CreatePost() {
+
+function CreatePost({isAuth}) {
   const [title, setTitle] = useState("");//collects user input for title
   
   const [postText, setPostText] = useState("");//collects user input for post info
@@ -14,6 +15,12 @@ function CreatePost() {
     });
     navigate("/");
   };
+  
+  useEffect(() => {
+    if (!isAuth) {
+      navigate("/login");
+    }
+  }, []);
 
   return (
     <div className="createPostPage">
