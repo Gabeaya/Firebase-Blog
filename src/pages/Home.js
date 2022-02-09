@@ -19,10 +19,10 @@ function Home() {
       {postList.map((post)=> {
         return (
           <div className='post'> 
-
             <div className='postHeader'> 
-
-              <div className='title'> <h1> {post.tile}</h1></div>
+              <div className='title'> 
+                <h1> {post.title}</h1>
+              </div>
             </div>
             <div className='postTextContainer'> {post.postText}</div>
             <h3>@{post.author.name}</h3>
